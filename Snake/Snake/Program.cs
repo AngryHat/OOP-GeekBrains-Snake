@@ -24,6 +24,8 @@ namespace Snake
 
             while (true)
             {
+                Console.CursorVisible = false;
+
                 if (walls.IsHit(snake) || snake.IsHitTail())
                 {
                     break;
@@ -37,24 +39,27 @@ namespace Snake
                 {
                     snake.Move();
                 }
-                Thread.Sleep(100);
+                Thread.Sleep(200);
 
-                ConsoleKeyInfo key = Console.ReadKey();
-                if (key.Key == ConsoleKey.LeftArrow)
+                if (Console.KeyAvailable)
                 {
-                    snake.direction = Direction.LEFT;
-                }
-                else if (key.Key == ConsoleKey.RightArrow)
-                {
-                    snake.direction = Direction.RIGHT;
-                }
-                else if (key.Key == ConsoleKey.DownArrow)
-                {
-                    snake.direction = Direction.DOWN;
-                }
-                else if (key.Key == ConsoleKey.UpArrow)
-                {
-                    snake.direction = Direction.UP;
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    if (key.Key == ConsoleKey.LeftArrow)
+                    {
+                        snake.direction = Direction.LEFT;
+                    }
+                    else if (key.Key == ConsoleKey.RightArrow)
+                    {
+                        snake.direction = Direction.RIGHT;
+                    }
+                    else if (key.Key == ConsoleKey.DownArrow)
+                    {
+                        snake.direction = Direction.DOWN;
+                    }
+                    else if (key.Key == ConsoleKey.UpArrow)
+                    {
+                        snake.direction = Direction.UP;
+                    }
                 }
             }
 
