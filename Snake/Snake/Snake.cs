@@ -67,5 +67,25 @@ namespace Snake
             }
             return false;
         }
+
+        public void Control(ConsoleKeyInfo inputKey)
+        {
+            if (inputKey.Key == ConsoleKey.LeftArrow)
+            {
+                direction = Direction.LEFT;
+            }
+            else if (inputKey.Key == ConsoleKey.RightArrow)
+            {
+                direction = Direction.RIGHT;
+            }
+            else if (inputKey.Key == ConsoleKey.DownArrow)
+            {
+                direction = Direction.DOWN;
+            }
+            else if (inputKey.Key == ConsoleKey.UpArrow)
+            {
+                direction = Direction.UP;
+            }
+        }
     }
 }
